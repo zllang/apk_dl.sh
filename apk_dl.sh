@@ -70,11 +70,11 @@ $is_list && exit 0
 # If "use directly the first result" or more than one result, show "choose" prompt.
 if [[ "$custom_index" == ?(-)+([0-9]) ]]; then
     index=$custom_index
-elif [ $res_limit -ne 1 ] || [ -z "${titles[2]}" ]; then
-    echo -ne "\nSelect one from above: "
-    read -r index
-    echo
-    [[ "$index" != ?(-)+([0-9]) ]] && ( echo Not a valid number. ; exit 1 )
+#elif [ $res_limit -ne 1 ] || [ -z "${titles[2]}" ]; then
+#    echo -ne "\nSelect one from above: "
+#    read -r index
+#    echo
+#    [[ "$index" != ?(-)+([0-9]) ]] && ( echo Not a valid number. ; exit 1 )
 else
     index=1
 fi
@@ -82,7 +82,7 @@ fi
 app_url=${urls[$index]}
 app_title=${titles[$index]}
 echo -e "Selected: $app_title"
-
+echo -e "Url: $app_url"
 # Scrape file id by visiting the "downloads" page.
 echo -en " - Scraping the file id..    "
 src=$(curl "$app_url/download" 2>/dev/null | grep -Po 'data-file-id="\d+"')
