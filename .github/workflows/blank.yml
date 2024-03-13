@@ -33,4 +33,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           chmod u+x $GITHUB_WORKSPACE/apk_dl.sh
-          $GITHUB_WORKSPACE/apk_dl.sh slack -n 1
+          $GITHUB_WORKSPACE/apk_dl.sh slack -1
