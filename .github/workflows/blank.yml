@@ -33,5 +33,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls -l
+          pwd
+          chmod u+x $GITHUB_WORKSPACE/apkdl.sh
           $GITHUB_WORKSPACE/apkdl.sh -f slack
-          echo test, and deploy your project.
